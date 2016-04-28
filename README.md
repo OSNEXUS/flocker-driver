@@ -27,7 +27,7 @@ Flocker must already be installed before installing this plugin. For details on 
 Install using python
 ```bash
 git clone https://github.com/OSNEXUS/flocker-driver
-cd osnexus-flocker-driver/
+cd flocker-driver/
 sudo /opt/flocker/bin/python setup.py install
 ```
 **_Be sure to use /opt/flocker/bin/python to install the driver into the right python environment_**
@@ -36,7 +36,7 @@ sudo /opt/flocker/bin/python setup.py install
 Install using pip
 ```
 git clone https://github.com/OSNEXUS/flocker-driver
-cd osnexus-flocker-driver/
+cd flocker-driver/
 /opt/flocker/bin/pip install -e .
 ```
 **_Be sure to use /opt/flocker/bin/pip to install the driver into the right python environment_**
