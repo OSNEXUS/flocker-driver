@@ -143,7 +143,7 @@ PASSED (successes=30)
 ```
 
 # Demo
-Coming soon
+https://github.com/OSNEXUS/flocker-demo
 
 # Support
 Please file bugs and issues at the Github issues page. For more general discussions you can contact the Flocker team at Google Groups. Please contact OSNEXUS support (support@osnexus.com) for any issues.
