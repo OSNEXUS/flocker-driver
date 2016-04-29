@@ -54,8 +54,6 @@ class OsnexusBlockDeviceAPI(object):
         # gethostname() is returned.
         #socket.gethostbyname - Translate a host name to IPv4 address format.
 
-        #Message.new(Error="In compute******").write(_logger)
-        self._logger.error("In compute instance")
         return unicode(socket.gethostbyname(socket.getfqdn()))
 
 

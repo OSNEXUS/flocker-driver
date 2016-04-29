@@ -1,10 +1,10 @@
 # OSNEXUS QuantaStor plugin for ClusterHQ/Flocker
-Flocker storage driver for Quantastor from OSNEXUS
+Flocker storage driver for QuantaStor from OSNEXUS
 ClusterHQ/Flocker provides an easy way for Docker containers to persist data. OSNEXUS QuantaStor plugin for Flocker provides fast, local and persistent data for Docker containers.
 
 # Description
 QuantaStor is a unified Software Defined Storage (SDS) platform designed to scale up and out to make storage management easy while reducing overall enterprise storage costs. 
-More information about Quantastor can be found at (http://www.osnexus.com/storage-appliance-os)
+More information about QuantaStor can be found at (http://www.osnexus.com/storage-appliance-os)
 
 OSNEXUS QuantaStor plugin also supports Flocker Storage profiles (Gold, Silver and Bronze).
 Details regarding Flocker Storage Profiles can be found on the ClusterHQ site at -
@@ -64,31 +64,31 @@ Configure the plugin for Flocker by adding the following configuration to the fi
 **_This is an example configuration and needs to be edited to match your environment configuration._**
 * Adjust the `ipaddress`, `username`, and `password` values to match those of the QuantaStor storage system.
 * Define the Storage Tier names for the `gold_tier`, `silver_tier`, and `bronze_tier` storage profiles.
-* Adjust the `default_pool` value to match the QuantaStorage storage pool.
+* Adjust the `default_pool` value to match the QuantaStor storage pool.
 
 **_If these values are left empty, the OSNEXUS QuantaStor plugin will the use the default values:
 `flocker_def_gold_tier`, `flocker_def_silver_tier`, `flocker_def_bronze_tier`, `flocker_def_pool`_**
 
 
-# Configure the Quantastor system for Flocker
+# Configure the QuantaStor system for Flocker
 QuantaStor supports the use of REST APIs for development of applications and extensions to remotely manage QuantaStor storage systems.
-Make sure the flocker nodes can communicate with the Quantastor system. 
+Make sure the flocker nodes can communicate with the QuantaStor system. 
 Confirm communication with the QuantaStor system using a RESTful API call to enumerate the storage system:
 ```
 curl -u admin:password https://10.0.11.9:8153/qstorapi/storageSystemGet -k
 ```
-This command should return information about the Quantastor system. Confirm all the flocker nodes are able to communicate with the Quantastor system. 
+This command should return information about the QuantaStor system. Confirm all the flocker nodes are able to communicate with the QuantaStor system. 
 
-OSNEXUS Quantastor plugin for Flocker supports storage profiles (GOLD, SILVER and BRONZE). 
+OSNEXUS QuantaStor plugin for Flocker supports storage profiles (GOLD, SILVER and BRONZE). 
 
-Before any volumes can be provisioned by Flocker, Quantastor needs to be configured with storage pools and/or storage tiers. 
-This can be done from the Quantastor Web interface or from the Quantastor CLI. 
+Before any volumes can be provisioned by Flocker, QuantaStor needs to be configured with storage pools and/or storage tiers. 
+This can be done from the QuantaStor Web interface or from the QuantaStor CLI. 
 
-Example, http://10.0.11.9 will access the Web interface for the Quantastor system on the IP address 10.0.11.9.
+Example, http://10.0.11.9 will access the Web interface for the QuantaStor system on the IP address 10.0.11.9.
 
 Confirm that Storage Tier names for each profile and the default pool name have been configured in the agent.yml file.  If empty, note that the default names will be used: `flocker_def_gold_tier`, `flocker_def_silver_tier`, `flocker_def_bronze_tier`, `flocker_def_pool`
 
-Quantastor needs to be configured with the storage pools and/or storage tiers specified in the agent.yml.  The following examples will use the default names shown above.  Adjust to reflect the values configured in the agent.yml file.
+QuantaStor needs to be configured with the storage pools and/or storage tiers specified in the agent.yml.  The following examples will use the default names shown above.  Adjust to reflect the values configured in the agent.yml file.
 
 ```
 qs pool-create --name flocker_def_pool --disk-list=sdb --raid-type=LINEAR, --pool-type=zfs, --desc="A default pool for flocker" 
@@ -96,8 +96,8 @@ qs pool-create --name flocker_def_pool --disk-list=sdb --raid-type=LINEAR, --poo
 More information on the storage pools can be found at (http://wiki.osnexus.com/index.php?title=QuantaStor_Administrators_Guide#Managing_Storage_Pools)
 
 
-To create a volume with a particular storage profile, create the following Storage Tiers in Quantastor - flocker_gold_pool, flocker_silver_pool and flocker_bronze_pool.
-Quantastor supports creation of a grid with multiple Quantastor systems in a grid. Each Quantastor system in the grid is called a node. Storage Tier can span multiple nodes. 
+To create a volume with a particular storage profile, create the following Storage Tiers in QuantaStor - flocker_gold_pool, flocker_silver_pool and flocker_bronze_pool.
+QuantaStor supports creation of a grid with multiple QuantaStor systems in a grid. Each QuantaStor system in the grid is called a node. Storage Tier can span multiple nodes. 
 More information on Storage Tiers can be found here - http://wiki.osnexus.com/index.php?title=QuantaStor_Administrators_Guide#Managing_Storage_Provisioning_Tiers_.28Storage_Pool_Groups.29
 
 To create the Storage Tiers follow these steps
@@ -130,7 +130,7 @@ More information about Flocker storage profiles can be found at -
 https://docs.clusterhq.com/en/latest/flocker-features/storage-profiles.html#storage-profiles
 
 # Running Tests
-After having the agent.yml in place, tests can be performed on the OSNEXUS Quantastor plugin for Flocker. Use the following command to run the tests on the Flocker nodes.
+After having the agent.yml in place, tests can be performed on the OSNEXUS QuantaStor plugin for Flocker. Use the following command to run the tests on the Flocker nodes.
 ```
 trial osnexus_flocker_driver.test_osnexus
 
